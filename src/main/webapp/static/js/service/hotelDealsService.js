@@ -5,7 +5,8 @@
 
 angular.module('hotelDealsApp').factory('hotelDealsService', ['$http', '$q', function($http, $q){
 
-    var REST_SERVICE_URI = 'http://localhost:8080/list';
+    var baseURL = 'http://hanshika.cloud.cms500.com/';
+    var oldBaseURL = 'http://localhost:8080/';
 
     var factory = {
         fetchAllHotelDeals: fetchAllHotelDeals,
@@ -18,7 +19,7 @@ angular.module('hotelDealsApp').factory('hotelDealsService', ['$http', '$q', fun
 
     function fetchAllHotelDeals() {
         var deferred = $q.defer();
-        $http.get(REST_SERVICE_URI)
+        $http.get(baseURL+'list')
             .then(
                 function (response) {
                     deferred.resolve(response.data);
@@ -33,7 +34,7 @@ angular.module('hotelDealsApp').factory('hotelDealsService', ['$http', '$q', fun
 
     function sortListBy(sortby) {
         var deferred = $q.defer();
-        $http.get(REST_SERVICE_URI+'/sortBy/'+sortby)
+        $http.get(baseURL+'list/sortBy/'+sortby)
             .then(
                 function (response) {
                     deferred.resolve(response.data);
@@ -48,7 +49,7 @@ angular.module('hotelDealsApp').factory('hotelDealsService', ['$http', '$q', fun
 
     function searchListBy(val) {
         var deferred = $q.defer();
-        $http.get('http://localhost:8080/search/query/'+val)
+        $http.get(baseURL+'search/query/'+val)
             .then(
                 function (response) {
                     deferred.resolve(response.data);
@@ -63,7 +64,7 @@ angular.module('hotelDealsApp').factory('hotelDealsService', ['$http', '$q', fun
 
     function getStats() {
         var deferred = $q.defer();
-        $http.get('http://localhost:8080/stats')
+        $http.get(baseURL+'stats')
             .then(
                 function (response) {
                     deferred.resolve(response.data);
