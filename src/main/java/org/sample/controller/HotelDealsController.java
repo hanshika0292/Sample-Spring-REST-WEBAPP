@@ -55,15 +55,10 @@ public class HotelDealsController {
     public ResponseEntity<List<HotelDeals>> getSearchList(@PathVariable("query") String query){
         List<HotelDeals> hotelDealsList = new ArrayList<>();
         hotelDealsList = hotelDealsService.getSearchListByNameorLocation(query);
-        if(!query.equalsIgnoreCase("undefined")) {
-            if (hotelDealsList.size() == 0) {
-                hotelDealsList = hotelDealsService.getAllHotelDeals();
-                return new ResponseEntity<>(hotelDealsList, HttpStatus.BAD_REQUEST);
-            } else {
-                return new ResponseEntity<>(hotelDealsList, HttpStatus.OK);
-            }
-        }else{
+        if (hotelDealsList.size() == 0) {
             hotelDealsList = hotelDealsService.getAllHotelDeals();
+            return new ResponseEntity<>(hotelDealsList, HttpStatus.BAD_REQUEST);
+        } else {
             return new ResponseEntity<>(hotelDealsList, HttpStatus.OK);
         }
     }

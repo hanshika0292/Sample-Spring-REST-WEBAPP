@@ -24,7 +24,7 @@
         <!-- Default panel contents -->
         <div class="panel-heading">
             <span class="lead">List of Hotel Deals <span style="font-size: 10px">(Sorting implemented on the header names of the table)</span></span>
-            <div class="search-holder" style="width: 400px">
+            <div class="search-holder" style="width: 400px;margin-top: -10px;margin-right: -12px">
                 <span style="font-size: 20px;color: #1b6d85">Stats:</span>
                 <div ng-init="initializeStats();">
                     <p> Average Rating : <span>{{stats.averageRating}}</span>
@@ -40,7 +40,7 @@
                     </p>
                 </div>
             </div>
-            <div class="search-holder">
+            <div class="search-holder" style="margin-right: -10px;margin-top: -10px">
                 <input list="tagList" ng-model="searchBox" name="search" class="search-box" placeholder=" Search by Name or Location">
                 <datalist id="tagList"></datalist>
                 <button ng-click="searchInList();">

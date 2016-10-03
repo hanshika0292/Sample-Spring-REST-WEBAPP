@@ -38,15 +38,27 @@ angular.module('hotelDealsApp').controller('hotelDealsController', ['$scope', 'h
 
     $scope.searchInList = function(){
         var val = $scope.searchBox;
-        hotelDealsService.searchListBy(val)
-            .then(
-                function (d) {
-                    self.hotelDeals = d;
-                },
-                function (errResponse) {
-                    console.error('Error while fetching Hotel Deals');
-                }
-            );
+        if(val=="" || val=="undefined"){
+            hotelDealsService.fetchAllHotelDeals()
+                .then(
+                    function (d) {
+                        self.hotelDeals = d;
+                    },
+                    function (errResponse) {
+                        console.error('Error while fetching Hotel Deals');
+                    }
+                );
+        }else {
+            hotelDealsService.searchListBy(val)
+                .then(
+                    function (d) {
+                        self.hotelDeals = d;
+                    },
+                    function (errResponse) {
+                        console.error('Error while fetching Hotel Deals');
+                    }
+                );
+        }
 
     };
 

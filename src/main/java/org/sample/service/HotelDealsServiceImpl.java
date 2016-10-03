@@ -61,10 +61,14 @@ public class HotelDealsServiceImpl implements HotelDealsService {
         apiHits++;
         List<HotelDeals> hotelDealsList = hotelDealsDao.getAllHotelDeals();
         List<HotelDeals> refinedList = new ArrayList<>();
-        for(HotelDeals hotelDeals : hotelDealsList){
-            if(org.apache.commons.lang3.StringUtils.containsIgnoreCase(hotelDeals.getName(),query)
-                    || org.apache.commons.lang3.StringUtils.containsIgnoreCase(hotelDeals.getLocation(),query)){
-                refinedList.add(hotelDeals);
+        if(query.equalsIgnoreCase("undefined")){
+            refinedList = hotelDealsList;
+        }else {
+            for (HotelDeals hotelDeals : hotelDealsList) {
+                if (org.apache.commons.lang3.StringUtils.containsIgnoreCase(hotelDeals.getName(), query)
+                        || org.apache.commons.lang3.StringUtils.containsIgnoreCase(hotelDeals.getLocation(), query)) {
+                    refinedList.add(hotelDeals);
+                }
             }
         }
         return refinedList;
