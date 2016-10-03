@@ -1,0 +1,92 @@
+body{
+    background-color:#F1F1F1;
+}
+header{
+    background-color: white;
+    color: #72BB53;
+    font-size: 30px;
+    height: 15%;
+    padding: 10px 10px 10px;
+    border: 2px solid black;
+}
+header .blue{
+    color: #02A4D3;
+}
+header .light-blue{
+    font-size: 20px;
+}
+.stat-block{
+    border: 1px solid #00CEA7;
+    margin: 10px 10px 10px;
+    padding:10px;
+    border-radius: 5px;
+    background-color: #EBF7E6;
+    width: 800px;float:right;
+    height: 100px;
+}
+.search-holder{
+    border: 1px solid gray;
+    margin: 10px 10px 10px;
+    padding:10px;
+    border-radius: 5px;
+    background-color: #EBF7E6;
+    float: right;
+    width: 300px;
+}
+
+.input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    height: 40px;
+}
+.search-box{
+    width:275px;
+}
+
+body, #mainWrapper {
+    height: 80%;
+    background-color:rgb(245, 245, 245);
+}
+
+body{
+    font-size:12px!important;
+}
+
+.floatRight{
+    float:right;
+    margin-right: 18px;
+}
+
+.has-error{
+    color:red;
+}
+
+.tablecontainer{
+    padding-left: 20px;
+}
+
+.generic-container {
+    width:95%;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #EAE7E7;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 0 30px black;
+}
+table
+{
+    table-layout: fixed;
+    /*width: 100px;*/
+    word-wrap:break-word;
+    overflow: hidden;
+}
+
+table a:hover,table th a:hover{
+    cursor: pointer;
+}
+
+
