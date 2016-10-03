@@ -5,8 +5,8 @@
 
 angular.module('hotelDealsApp').factory('hotelDealsService', ['$http', '$q', function($http, $q){
 
-    var baseURL = 'http://hanshika.cloud.cms500.com/';
-    var oldBaseURL = 'http://localhost:8080/';
+    // var baseURL = 'http://hanshika.cloud.cms500.com/';
+    var baseURL = 'http://localhost:8080/';
 
     var factory = {
         fetchAllHotelDeals: fetchAllHotelDeals,

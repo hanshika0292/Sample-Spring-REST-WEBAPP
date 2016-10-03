@@ -15,11 +15,13 @@ import java.util.List;
 public class HotelDealsDaoImpl implements HotelDealsDao {
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://mysql21735-hanshika.cloud.cms500.com/sampleWebAppDB";
+//    static final String DB_URL = "jdbc:mysql://mysql21735-hanshika.cloud.cms500.com/sampleWebAppDB";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/sampleWebAppDB";
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "LKRhsc05849";
+//    static final String PASS = "LKRhsc05849";
+    static final String PASS = "12345";
 
     public List<HotelDeals> getAllHotelDeals(){
         List<HotelDeals> hotelDealsList = new ArrayList<>();

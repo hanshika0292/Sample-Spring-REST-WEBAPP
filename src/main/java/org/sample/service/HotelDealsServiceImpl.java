@@ -5,6 +5,7 @@ import org.sample.dao.HotelDealsDao;
 import org.sample.model.HotelDeals;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -61,7 +62,8 @@ public class HotelDealsServiceImpl implements HotelDealsService {
         List<HotelDeals> hotelDealsList = hotelDealsDao.getAllHotelDeals();
         List<HotelDeals> refinedList = new ArrayList<>();
         for(HotelDeals hotelDeals : hotelDealsList){
-            if(hotelDeals.getName().contains(query) || hotelDeals.getLocation().contains(query)){
+            if(org.apache.commons.lang3.StringUtils.containsIgnoreCase(hotelDeals.getName(),query)
+                    || org.apache.commons.lang3.StringUtils.containsIgnoreCase(hotelDeals.getLocation(),query)){
                 refinedList.add(hotelDeals);
             }
         }
