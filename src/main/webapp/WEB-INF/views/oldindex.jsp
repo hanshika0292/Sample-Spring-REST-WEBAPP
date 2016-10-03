@@ -53,15 +53,10 @@
                 <span ng-bind="numberOfResults"></span>
                 Results found
             </span>
-            </span>
+                </span>
             </div>
         </div>
         <div class="tablecontainer">
-            <ul class="pagination">
-                <li><a href="#" ng-click="getPage(1);">1</a></li>
-                <li><a href="#" ng-click="getPage(2);">2</a></li>
-                <li><a href="#" ng-click="getPage(3);">3</a></li>
-            </ul>
             <table class="table table-hover">
                 <thead>
                 <tr>

@@ -12,14 +12,15 @@ angular.module('hotelDealsApp').factory('hotelDealsService', ['$http', '$q', fun
         fetchAllHotelDeals: fetchAllHotelDeals,
         sortListBy : sortListBy,
         searchListBy : searchListBy,
-        getStats : getStats
+        getStats : getStats,
+        fetchAllHotelDealsOnPage : fetchAllHotelDealsOnPage
     };
 
     return factory;
 
     function fetchAllHotelDeals() {
         var deferred = $q.defer();
-        $http.get(baseURL+'list')
+        $http.get(baseURL+'list/page/1')
             .then(
                 function (response) {
                     deferred.resolve(response.data);
@@ -65,6 +66,21 @@ angular.module('hotelDealsApp').factory('hotelDealsService', ['$http', '$q', fun
     function getStats() {
         var deferred = $q.defer();
         $http.get(baseURL+'stats')
+            .then(
+                function (response) {
+                    deferred.resolve(response.data);
+                },
+                function(errResponse){
+                    console.error('Error while fetching Hotel Deals');
+                    deferred.reject(errResponse);
+                }
+            );
+        return deferred.promise;
+    }
+
+    function fetchAllHotelDealsOnPage(pageNo) {
+        var deferred = $q.defer();
+        $http.get(baseURL+'list/page/'+pageNo)
             .then(
                 function (response) {
                     deferred.resolve(response.data);

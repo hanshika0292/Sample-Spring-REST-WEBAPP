@@ -9,6 +9,7 @@ angular.module('hotelDealsApp').controller('hotelDealsController', ['$scope', 'h
     self.hotelDeals=[];
     $scope.stats = {averageRating:null,apiHits:null, price:[],areaWiseHotelDistribution:{}};
     $scope.iconSrc = "/images/icon.png";
+    $scope.numberOfResults = 0;
 
     fetchAllHotelDeals();
 
@@ -17,6 +18,7 @@ angular.module('hotelDealsApp').controller('hotelDealsController', ['$scope', 'h
             .then(
                 function(d) {
                     self.hotelDeals = d;
+                    $scope.numberOfResults = self.hotelDeals.length;
                 },
                 function(errResponse){
                     console.error('Error while fetching Hotel Deals');
@@ -43,6 +45,7 @@ angular.module('hotelDealsApp').controller('hotelDealsController', ['$scope', 'h
                 .then(
                     function (d) {
                         self.hotelDeals = d;
+                        $scope.numberOfResults = self.hotelDeals.length;
                     },
                     function (errResponse) {
                         console.error('Error while fetching Hotel Deals');
@@ -53,6 +56,7 @@ angular.module('hotelDealsApp').controller('hotelDealsController', ['$scope', 'h
                 .then(
                     function (d) {
                         self.hotelDeals = d;
+                        $scope.numberOfResults = self.hotelDeals.length;
                     },
                     function (errResponse) {
                         console.error('Error while fetching Hotel Deals');
@@ -76,5 +80,18 @@ angular.module('hotelDealsApp').controller('hotelDealsController', ['$scope', 'h
                 }
             );
     };
+
+    $scope.getPage = function (pageNo) {
+        hotelDealsService.fetchAllHotelDealsOnPage(pageNo)
+            .then(
+                function(d) {
+                    self.hotelDeals = d;
+                    $scope.numberOfResults = self.hotelDeals.length;
+                },
+                function(errResponse){
+                    console.error('Error while fetching Hotel Deals');
+                }
+            );
+    }
 
 }]);

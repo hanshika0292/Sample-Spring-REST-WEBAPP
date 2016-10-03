@@ -88,5 +88,8 @@ table
 table a:hover,table th a:hover{
     cursor: pointer;
 }
-
+.result{
+    font-size: 20px;
+    color: grey;
+}
 
