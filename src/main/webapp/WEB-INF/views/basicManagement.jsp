@@ -14,12 +14,12 @@
     <link href="<c:url value='/static/css/styles.css' />" rel="stylesheet"/>
 </head>
 <body ng-app="hotelDealsApp" class="ng-cloak">
-<header>
-    <img ng-src="{{iconSrc}}" style="width: 50px;height: 50px">
-    <span class="blue">D</span>eals<span class="blue">H</span>ub
-    <span class="light-blue">-- finding hotel deals made easy!</span>
-</header>
 <div class="generic-container" ng-controller="hotelDealsController as ctrl">
+    <header>
+        <img  src="https://images.treebohotels.com/images/favicon-3.ico?212" style="width: 50px;height: 50px">
+        <span class="blue">D</span>eals<span class="blue">H</span>ub
+        <span class="light-blue">-- finding hotel deals made easy!</span>
+    </header>
     <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">
